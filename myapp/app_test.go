@@ -57,7 +57,7 @@ func TestFooHandler_WithoutJson(t *testing.T) {
 	assert := assert.New(t)
 
 	res := httptest.NewRecorder()
-	req := httptest.NewRequest("GET", "/foo",
+	req := httptest.NewRequest("POST", "/foo",
 		strings.NewReader(
 			`{"first_name": "namsoo", "last_name": "lee", "email": "sodoatm@gmail.com"}`))
 
@@ -71,5 +71,4 @@ func TestFooHandler_WithoutJson(t *testing.T) {
 	assert.Nil(err)
 	assert.Equal("namsoo", user.FirstName)
 	assert.Equal("lee", user.LastName)
-
 }
